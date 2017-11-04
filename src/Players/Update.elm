@@ -1,5 +1,6 @@
 module Players.Update exposing (..)
 
+import Navigation
 import Players.Messages exposing (Msg(..))
 import Players.Models exposing (Player)
 
@@ -12,3 +13,9 @@ update message players =
 
         OnFetchAll (Err error) ->
             ( players, Cmd.none )
+
+        ShowPlayers ->
+            ( players, Navigation.newUrl "#players" )
+
+        ShowPlayer id ->
+            ( players, Navigation.newUrl <| "#players/" ++ id )

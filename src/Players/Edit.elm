@@ -2,6 +2,7 @@ module Players.Edit exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class)
+import Html.Events exposing (onClick)
 import Players.Messages exposing (..)
 import Players.Models exposing (Player)
 
@@ -17,7 +18,18 @@ view model =
 nav : Player -> Html Msg
 nav model =
     div [ class "clearfix mb2 white bg-black p1" ]
-        []
+        [ listBtn ]
+
+
+listBtn : Html Msg
+listBtn =
+    button
+        [ class "btn regular"
+        , onClick ShowPlayers
+        ]
+        [ i [ class "fa fa-chevron-left mr1" ] []
+        , text "List"
+        ]
 
 
 form : Player -> Html Msg
