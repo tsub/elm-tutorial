@@ -1,11 +1,12 @@
 module Main exposing (..)
 
 import Html exposing (program)
-import Messages exposing (Msg)
+import Messages exposing (Msg(..))
 import Models exposing (Model, initialModel)
 import Subscriptions exposing (subscriptions)
 import Update exposing (update)
 import View exposing (view)
+import Players.Commands exposing (fetchAll)
 
 
 main : Program Never Model Msg
@@ -20,4 +21,4 @@ main =
 
 init : ( Model, Cmd Msg )
 init =
-    ( initialModel, Cmd.none )
+    ( initialModel, Cmd.map PlayersMsg fetchAll )
