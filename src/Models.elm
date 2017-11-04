@@ -1,12 +1,17 @@
 module Models exposing (..)
 
 import Players.Models exposing (Player)
+import Routing
 
 
 type alias Model =
-    { players : List Player }
+    { players : List Player
+    , route : Routing.Route
+    }
 
 
-initialModel : Model
-initialModel =
-    { players = [] }
+initialModel : Routing.Route -> Model
+initialModel route =
+    { players = []
+    , route = route
+    }
